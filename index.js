@@ -19,6 +19,8 @@ let comp_win = 0;
 let user_win = 0;
 const choices = document.querySelectorAll('.choice');
 
+let msg =  document.querySelector("#msg");
+
 choices.forEach((choice) => {
     choice.addEventListener('click', () => {
         console.log(`Your choice is ${choice.id}`);
@@ -38,17 +40,20 @@ const showWinner = (userWin) => {
     if (userWin){
         user_win++;
         document.querySelector("#user-score").textContent = user_win;
-        document.querySelector("#msg").textContent = "YOU WIN!";
+        msg.textContent = "YOU WIN!";
+        msg.style.backgroundColor = "green";
     }   
     else{
         comp_win++;
         document.querySelector("#comp-score").textContent = comp_win;
-        document.querySelector("#msg").textContent = "YOU LOSE!";
+        msg.textContent = "YOU LOSE!";
+        msg.style.backgroundColor = "red";
     }
 }
 
 const draw = () => {
-    document.querySelector("#msg").textContent = "DRAW!";
+    msg.textContent = "DRAW! Try Again.";
+    msg.style.backgroundColor = "#060637";
 }
 
 const game = (userChoice) =>{
